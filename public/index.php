@@ -157,13 +157,30 @@ use Firebase\JWT\Key;
   });
 
   $app->delete('/user/delete', function (Request $request, Response $response) {
-    $data = json_decode($request->getBody());
-    $userid = $data->userid;
+    $data = json_decode($request->getBody(), true); // Decode JSON body as associative array
+    $userid = $data['userid'];
 
     try {
         $conn = new PDO("mysql:host=localhost;dbname=library", 'root', 'passroot1');
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+        // Check if the user exists
+        $checkSql = "SELECT COUNT(*) AS user_count FROM users WHERE userid = :userid";
+        $checkStmt = $conn->prepare($checkSql);
+        $checkStmt->bindParam(':userid', $userid);
+        $checkStmt->execute();
+        $result = $checkStmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($result['user_count'] == 0) {
+            // User does not exist
+            $response->getBody()->write(json_encode(array(
+                "status" => "fail",
+                "message" => "userid not found."
+            )));
+            return $response->withStatus(404); // Not Found
+        }
+
+        // Proceed to delete the user
         $sql = "DELETE FROM users WHERE userid = :userid";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':userid', $userid);
@@ -171,11 +188,14 @@ use Firebase\JWT\Key;
 
         $response->getBody()->write(json_encode(array("status" => "success", "data" => null)));
     } catch (PDOException $e) {
-        return $response->withStatus(500)->getBody()->write(json_encode(array("status" => "fail", "message" => $e->getMessage())));
+        return $response->withStatus(500)->getBody()->write(json_encode(array(
+            "status" => "fail",
+            "message" => $e->getMessage()
+        )));
     }
 
     return $response;
-  });
+});
 
   $app->post('/user/login', function (Request $request, Response $response) {
     $key = 'server_hack';
