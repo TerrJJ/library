@@ -17,7 +17,7 @@ The Library API can be tested locally via **Thunder Client**, a popular VS Code 
 1. Open **Thunder Client** in VS Code.
 2. Create a new request for the desired endpoint:
 -  **Method**: POST, GET, PUT, or DELETE.
--  **URL**: `http://127.0.0.1/<endpoint>`
+-  **URL**: `http://127.0.0.1/library/public/<endpoint>`
 -  **Authorization**: `Bearer < generated token>`
 -  **Body**: For functions `POST`, `PUT`, &  `DELETE`, user will have provide the required JSON payload in the body.
 3. For troubleshooting the API, the stated statuses for each fail response are stated in the documentation for ease of navigation on the code. These statuses do not reflect in the Status section of Thunder Client as it can return a code `200 OK` but the endpoint itself will return with a `fail` status.
@@ -28,7 +28,7 @@ The Library API can be tested locally via **Thunder Client**, a popular VS Code 
 
 ### Books
 #### /books/delete
--  **URL**: `http://127.0.0.1/books/delete`
+-  **URL**: `http://127.0.0.1/library/public/books/delete`
 -  **DESCRIPTION**: Deletes a book by its `bookid`
 -  **Method**: DELETE
 - **Authorization**: Bearer (generated token)
@@ -64,7 +64,7 @@ The Library API can be tested locally via **Thunder Client**, a popular VS Code 
 		 
 	 
 #### /books/list
--  **URL**: `http://127.0.0.1/books/list`
+-  **URL**: `http://127.0.0.1/library/public/books/list`
 -  **DESCRIPTION**: Lists all the title of the books and its `bookid` in the library database.
 -  **Method**: GET
 -  **Response**:
@@ -99,7 +99,7 @@ The Library API can be tested locally via **Thunder Client**, a popular VS Code 
   
 ### Authors
 #### /authors/add
--  **URL**: `http://127.0.0.1/authors/add`
+-  **URL**: `http://127.0.0.1/library/public/authors/add`
 -  **DESCRIPTION**: Adds a new author in the library database.
 -  **Method**: POST
 -  **Response**:
@@ -132,7 +132,7 @@ The Library API can be tested locally via **Thunder Client**, a popular VS Code 
 		 ```
 		 
 #### /authors/update
--  **URL**: `http://127.0.0.1/authors/update`
+-  **URL**: `http://127.0.0.1/library/public/authors/update`
 -  **DESCRIPTION**: Updates an existing author in the library database.
 -  **Method**: POST
 -  **Response**:
@@ -175,7 +175,7 @@ The Library API can be tested locally via **Thunder Client**, a popular VS Code 
 
 ### Users
 #### /user/register
--  **URL**: `http://127.0.0.1/user/register`
+-  **URL**: `http://127.0.0.1/library/public/user/register`
 -  **DESCRIPTION**: Registers a user, this endpoint also requires a unique username and password combination. Else, it will return a fail message. This endpoint does not utilize the HTTP Header `Authorization`.
 -  **Method**: POST
 -  **Response**:
@@ -201,7 +201,7 @@ The Library API can be tested locally via **Thunder Client**, a popular VS Code 
 		 ```
 
 #### /user/authenticate
--  **URL**: `http://127.0.0.1/user/authenticate`
+-  **URL**: `http://127.0.0.1/library/public/user/authenticate`
 -  **DESCRIPTION**: Authenticates a registered user and requires the token generated from the endpoint `/user/register` in order to return a session token that can be used once. This endpoint does not utilize the HTTP Header `Authorization`.
 -  **Method**: POST
 -  **Response**:
@@ -228,7 +228,7 @@ The Library API can be tested locally via **Thunder Client**, a popular VS Code 
 		 ```
 
 #### /user/login
--  **URL**: `http://127.0.0.1/user/login`
+-  **URL**: `http://127.0.0.1/library/public/user/login`
 -  **DESCRIPTION**: Endpoint for registered and authenticated user, this endpoint also requires the token generated from `/user/authenticate`.
 -  **Method**: POST
 -  **Response**:
@@ -256,7 +256,7 @@ The Library API can be tested locally via **Thunder Client**, a popular VS Code 
 		}
 		 ```
 #### /user/edit
--  **URL**: `http://127.0.0.1/user/edit`
+-  **URL**: `http://127.0.0.1/library/public/user/edit`
 -  **DESCRIPTION**: Edits a registered user in the library database. Does not require any tokens.
 -  **Method**: POST
 -  **Response**:
@@ -281,7 +281,7 @@ The Library API can be tested locally via **Thunder Client**, a popular VS Code 
 		}
 		 ```
 #### /user/delete
--  **URL**: `http://127.0.0.1/user/delete`
+-  **URL**: `http://127.0.0.1/library/public/user/delete`
 -  **DESCRIPTION**: User signout API, deletes all session tokens whether or not it was used .
 -  **Method**: POST
 -  **Response**:
@@ -306,7 +306,7 @@ The Library API can be tested locally via **Thunder Client**, a popular VS Code 
 		 ```
 
 #### /user/signout
--  **URL**: `http://127.0.0.1/user/signout`
+-  **URL**: `http://127.0.0.1/library/public/user/signout`
 -  **DESCRIPTION**: User signout endpoint, deletes all session tokens whether or not it was used by the user.
 -  **Method**: POST
 -  **Response**:
