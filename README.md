@@ -111,8 +111,8 @@ The Library API can be tested locally via **Thunder Client**, a popular VS Code 
 	- **Success**:
 		```
 		{
-	  "status": "success",
-	  "message": "Author added successfully",
+		  "status": "success",
+		  "message": "Author added successfully",
 		  "token": "(generated token)"
 		}
 		 ``` 
@@ -145,8 +145,8 @@ The Library API can be tested locally via **Thunder Client**, a popular VS Code 
 	- **Success**:
 		```
 		{
-	  "status": "success",
-	  "message": "Author added successfully",
+		  "status": "success",
+		  "message": "Author added successfully",
 		  "token": "(generated token)"
 		}
 		 ``` 
@@ -188,8 +188,8 @@ The Library API can be tested locally via **Thunder Client**, a popular VS Code 
 	- **Success**:
 		```
 		{
-	  "status": "success",
-	  "data": null
+		  "status": "success",
+		  "data": null
 		}
 		 ``` 
 	 - **Fail (Status: 400)**:
@@ -214,8 +214,8 @@ The Library API can be tested locally via **Thunder Client**, a popular VS Code 
 	- **Success**:
 		```
 		{
-	  "status": "success",
-		 "token": "(generated token)",
+	 	  "status": "success",
+		  "token": "(generated token)",
 		  "data": null
 		}
 		 ``` 
@@ -241,11 +241,11 @@ The Library API can be tested locally via **Thunder Client**, a popular VS Code 
 	- **Success**:
 		```
 		{
-	  "status": "success",
-	  "message": "Login successful",
-  	  "userid" : 1,
-  	  "username": "Jane Doe",
-	  "token": "(generated token)"
+		  "status": "success",
+		  "message": "Login successful",
+	  	  "userid" : 1,
+	  	  "username": "Jane Doe",
+		  "token": "(generated token)"
 		}
 		 ``` 
 	 - **Fail (Status: 401)**:
@@ -269,8 +269,8 @@ The Library API can be tested locally via **Thunder Client**, a popular VS Code 
 	- **Success**:
 		```
 		{
-	  "status": "success",
-	  "data": null
+		  "status": "success",
+		  "data": null
 		}
 		 ``` 
 	 - **Fail (Status: 400)**:
@@ -319,8 +319,8 @@ The Library API can be tested locally via **Thunder Client**, a popular VS Code 
 	- **Success**:
 		```
 		{
-	  "status": "success",
-	  "message": "Signed out successfully, all tokens deleted."
+		  "status": "success",
+		  "message": "Signed out successfully, all tokens deleted."
 		}
 		 ``` 
 	 - **Fail (Status: 401)**:
