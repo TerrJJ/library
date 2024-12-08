@@ -8,7 +8,7 @@
 
 
 ## Introduction
-This library API utilizes a one-time use token for authenticated users, where each token has a lifespan of one minute. It requires the user to register and authenticate their username and password. The API has a total of 11 endpoints with three different categories. These are: [books](#books), [authors](#authors), and [users](#users) endpoints. To authorize the use of the token, the user will have to input their token on the `HTTP Header` as `Authorization`.
+This library API utilizes a one-time use token for authenticated users, where each token has a lifespan of one minute. It requires the user to register and authenticate their username and password. The API has a total of 11 endpoints with three different categories. These are: [books](#books), [authors](#authors), and [users](#users) endpoints. Tokens are `HTTPOnly` thus offering high security against XSS attacks, but can also be checked on the database for so as long as endpoint `/user/signout` is not used.
 
 ## Usage with Thunder Client
 
