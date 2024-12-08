@@ -1,4 +1,4 @@
-﻿
+
 # LIBRARY API
   
 ## List of Contents
@@ -96,7 +96,7 @@ The Library API can be tested locally via **Thunder Client**, a popular VS Code 
 		}
 		 ```
 
-  
+
 ### Authors
 #### /authors/add
 -  **URL**: `http://127.0.0.1/library/public/authors/add`
@@ -171,6 +171,61 @@ The Library API can be tested locally via **Thunder Client**, a popular VS Code 
 		  "message": "Invalid or used token"
 		}
 		 ```
+       
+#### /authors/list
+-  **URL**: `http://127.0.0.1/library/public/authors/list`
+-  **DESCRIPTION**: Retrieve a list of authors
+-  **Method**: GET
+-  **Response**:
+	```
+	  **Fail (Status: 403)**:
+		```
+		{
+		  "status": "fail",
+          "message": "Unauthorized"
+		}
+		 ```
+	 - **Fail (Status: 500)**:
+		```
+		{
+		  "status": "fail",
+		  "message": "Internal Server Error"
+		}
+		 ```
+
+
+ #### /authors/delete
+-  **URL**: `http://127.0.0.1/library/public/authors/delete`
+-  **DESCRIPTION**: Delete an author by ID
+-  **Method**: DELETE
+-   **Body**:
+    {
+		"authorid": 2
+	}
+	```
+-  **Response**:  
+    - **Success**:
+	```
+	{
+		"status": "success",
+        "message": "Author Deleted Successfully"
+	}
+	```
+	  **Fail (Status: 403)**:
+		```
+		{
+		  "status": "fail",
+          "message": "Unauthorized"
+		}
+		 ```
+	 - **Fail (Status: 500)**:
+		```
+		{
+		  "status": "fail",
+		  "message": "Internal Server Error"
+		}
+		 ```
+
 
 
 ### Users
