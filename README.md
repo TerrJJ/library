@@ -452,3 +452,151 @@ The Library API can be tested locally via **Thunder Client**, a popular VS Code 
 		  "message": "Invalid username or password."
 		}
 		 ```
+
+#### /collection/add
+-  **URL**: `http://127.0.0.1/library/public/collection/add`
+-  **DESCRIPTION**: Associate a book with an author
+-  **Method**: POST
+   **Body**:
+   {
+	"authorid": 1,
+	"bookid": 3
+   }
+   ```
+-  **Response**:
+	- **Success**:
+	```
+	{
+     "status": "success",
+     "message": "Book-Author association added successfully"
+	}
+	```
+	 - **Fail (Status: 403)**:
+		```
+		{
+		 "status": "fail",
+         "message": "Unauthorized"
+		}
+		 ```
+	 - **Fail (Status: 404)**:
+		```
+		{
+		 "status": "fail",
+         "message": "Book or author not found"
+		}
+		 ```
+	 - **Fail (Status: 500)**:
+		```
+		{
+		 "status": "fail",
+         "message": "Internal Server Error"
+		}
+		 ```
+
+
+#### /collection/delete
+-  **URL**: `http://127.0.0.1/library/public/collection/delete`
+-  **DESCRIPTION**: Remove a book-author association
+-  **Method**: DELETE
+   **Body**:
+   {
+	"collectionid": 1
+   }
+   ```
+-  **Response**:
+	- **Success**:
+	```
+	{
+    "status": "success",
+    "message": "Book-Author association deleted successfully"
+	}
+	```
+	 - **Fail (Status: 400)**:
+		```
+		{
+		"status": "fail",
+        "message": "Both book ID and author ID are required"
+		}
+		 ```
+	 - **Fail (Status: 403)**:
+		```
+		{
+		 "status": "fail",
+         "message": "Unauthorized"
+		}
+		 ```
+	 - **Fail (Status: 404)**:
+		```
+		{
+		 "status": "fail",
+         "message": "Association not found"
+		}
+		 ```
+	- **Fail (Status: 500)**:
+		```
+		{
+		 "status": "fail",
+         "message": "Internal Server Error"
+		}
+		 ```
+
+#### /collection/update
+-  **URL**: `http://127.0.0.1/library/public/collection/update`
+-  **DESCRIPTION**: Update a book-author association
+-  **Method**: POST
+   **Body**:
+   {
+	"authorid": 1,
+	"bookid": 3
+   }
+   ```
+-  **Response**:
+	- **Success**:
+	```
+	{
+    "status": "success",
+    "message": "Book-Author association updated successfully"
+	}
+	```
+	 - **Fail (Status: 400)**:
+		```
+		{
+		"status": "fail",
+        "message": "Both book ID and author ID are required"
+		}
+		 ```
+	 - **Fail (Status: 403)**:
+		```
+		{
+		 "status": "fail",
+         "message": "Unauthorized"
+		}
+		 ```
+	 - **Fail (Status: 404)**:
+		```
+		{
+		 "status": "fail",
+         "message": "Association not found"
+		}
+		 ```
+	- **Fail (Status: 500)**:
+		```
+		{
+		 "status": "fail",
+         "message": "Internal Server Error"
+		}
+		 ```
+
+#### /collection/list
+-  **URL**: `http://127.0.0.1/library/public/collection/list`
+-  **DESCRIPTION**: Retrieve a list of book-author associations
+-  **Method**: GET
+-  **Response**:
+	 - **Fail (Status: 400)**:
+		```
+		{
+		"status": "fail",
+        "message": "Both book ID and author ID are required"
+		}
+		 ```
+		
