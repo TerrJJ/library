@@ -95,6 +95,73 @@ The Library API can be tested locally via **Thunder Client**, a popular VS Code 
 		  "message": "Unauthorized: Token missing user information."
 		}
 		 ```
+#### /books/update
+-  **URL**: `http://127.0.0.1/library/public/books/update`
+-  **DESCRIPTION**: Update book details by ID
+-  **Method**: PUT
+    **Body**:
+	```
+	{
+        "bookid": 1,
+        "title": "sample title"
+    }
+	```
+
+-  **Response**:
+	- **Success**:
+		```
+		{
+		  "status": "success",
+		  "message": "Book updated sucessfully"
+		}
+		 ```
+		 **Fail (Status: 403)**:
+		  ```
+		  {
+			 "status": "fail",
+             "message": "Unauthorized"
+		  }
+		  ```
+		  **Fail (Status: 500)**:
+		  {
+			"status": "fail",
+            "message": "Internal Server Error"
+		  }
+		  ```
+
+
+#### /books/add
+-  **URL**: `http://127.0.0.1/library/public/books/add`
+-  **DESCRIPTION**: Add a new book
+-  **Method**: POST
+    **Body**:
+	{
+        "title": "sample title"
+    }
+	```
+
+-  **Response**:
+	- **Success**:
+		```
+		{
+		  "status": "success",
+		  "message": "Book added sucessfully"
+		}
+		 ```
+		 **Fail (Status: 403)**:
+		  ```
+		  {
+			 "status": "fail",
+             "message": "Unauthorized"
+		  }
+		  ```
+		  **Fail (Status: 500)**:
+		  {
+			"status": "fail",
+            "message": "Internal Server Error"
+		  }
+		  ```
+
 
 
 ### Authors
@@ -194,7 +261,7 @@ The Library API can be tested locally via **Thunder Client**, a popular VS Code 
 		 ```
 
 
- #### /authors/delete
+#### /authors/delete
 -  **URL**: `http://127.0.0.1/library/public/authors/delete`
 -  **DESCRIPTION**: Delete an author by ID
 -  **Method**: DELETE
